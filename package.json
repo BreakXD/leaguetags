@@ -1,0 +1,21 @@
+{
+  "name": "LeagueTags",
+  "version": "2.9.0",
+  "description": "Otimizar a troca de Tags",
+  "main": "app.js",
+  "scripts": {
+    "package-win": "electron-packager . LeagueTags --overwrite --platform=win32 --arch=ia32 --prune=true --out=release-builds --icon=images/icon.ico",
+    "package-asar": "electron-packager . LeagueTags --overwrite --platform=win32 --arch=ia32 --prune=true --out=release-builds --icon=images/icon.ico --asar",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Break",
+  "license": "MIT",
+  "dependencies": {
+    "electron": "^13.1.7",
+    "electron-alert": "^0.1.16",
+    "electron-open-link-in-browser": "^1.0.2",
+    "league-connector": "^1.0.6",
+    "node-machine-id": "^1.1.12",
+    "request": "^2.88.2"
+  }
+}

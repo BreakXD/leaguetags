@@ -1,0 +1,1013 @@
+<!--
+Copyright (c) 2019 by break. All Rights Reserved.
+ -->
+
+<html>
+
+<head>
+    <title>LeagueTags</title>
+    <!-- <script src="http://api.breakcoder.org/leaguetags/js/2.8.0/hm17.js"></script> -->
+    <script src="browser.js"></script>
+    <!-- <link rel="stylesheet" href="http://api.breakcoder.org/leaguetags/css/style.css"> -->
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Patua+One" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=EB+Garamond:700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+<body>
+
+
+  <script type="text/javascript">//open_propaganda();</script>
+
+    <div class="content">
+
+        <!-- BEGIN SECTIONS -->
+
+        <div class="sections">
+
+            <div class="tab-container">
+                <img src="assets/ui/selected.png" id="selected" class="selected" draggable="false"></img>
+                <div class="tab">
+                    <button class="tablinks" onclick="openTab(event, 'Home')" id="defaultOpen">Home</button>
+                    <button class="tablinks" onclick="openTab(event, 'Profile')">Profile</button>
+                    <button class="tablinks" onclick="openTab(event, 'Outros')">Others</button>
+                    <button class="tablinks" onclick="openTab(event, 'Lobby')">Lobby</button>
+                    <button class="tablinks" onclick="donation()">Donation</button>
+                </div>
+
+                <div class="controls">
+                    <button onclick="minimize_app();"><i class="material-icons icon">call_received</i></button>
+                    <button onclick="open_link();"><i class="material-icons icon">info</i></button>
+                    <button onclick="exit_app();"><i class="material-icons icon">clear</i></button>
+                </div>
+            </div>
+
+            <!-- TABS AND THEIR CONTENTS -->
+
+            <div id="Home" class="tabcontent center">
+
+                <!-- PROGRAM TITLE -->
+                <div class="title">
+                    <br></br>
+                    <br></br>
+                    <br></br>
+                    <br></br>
+
+
+                    <h1>LEAGUE TAGS </h1>
+                    <h1> Premium Version </h1>
+                    <img src="assets/ui/underline.png" draggable="false">
+
+                </div>
+
+                <button type="button" onclick="openTab(event, 'Profile')" class="getstarted">Begin</button>
+
+
+            </div>
+
+            <script>
+                document.getElementById("defaultOpen").click();
+            </script>
+
+            <div class="version">
+                <p class="version-tag" id="version-tag">2.9.9</p>
+            </div>
+
+
+            <div id="Profile" class="tabcontent">
+
+         <div class="info">
+          <img src="assets/ui/info2.png" draggable="false">
+          <div class="icon-box">
+            <img src="assets/ui/default_icon.png" class="summonericon" id="profileSummonerIcon" draggable="false">
+          </div>
+          <div class="level-box">
+            <img src="assets/ui/level.png" class="level-badge" draggable="false">
+            <p class="level-level" id="profileLevel">--</p>
+          </div>
+          <p class="info-name" id="profileName">Updating...</p>
+          <img src="assets/states/offline.png" class="info-status" id="info-status1" draggable="false">
+          
+          
+          <p class="info-bp" id="profileLeagueName"></p>
+          <br>                    <button type="button" onclick="profileUpdate()" class="getstarted">Refresh</button>
+
+        </div>
+
+        
+
+
+
+                <div class="box ">
+
+                    <div class="option">
+
+                        <p class="option-name">PLAYER PROFILE</p>
+
+                        
+
+
+
+
+                        <!-- CUSTOM SUMMONER ICON -->
+
+
+
+
+                        <div class="option">
+
+                            <p class="suboption-name">ICON CHANGER</p>
+
+                            <div>
+                              <!--  <div class="options">
+                                    <label><input id="AutoIcon" onclick="setIconChanger()" type="checkbox">AutoIcon</label>
+                                </div> -->
+                                <textarea rows="1" cols="20" placeholder="Icon (ID)" id="icon"></textarea>
+                            </div>
+
+
+                            <button type="button" onclick="submitIcon()">Update</button>
+                            <button type="button" onclick="iconList()">Icon List (0 TO 78)</button>
+
+
+                        </div>
+
+                        <p class="suboption-name">ICON CHANGER (CLIENT ONLY)</p>
+
+                          <div>
+                              <textarea rows="1" cols="27" placeholder="731" id="iconChat"></textarea>
+
+                          </div>
+
+
+                          <button type="button" onclick="submitIconChat()">Update</button>
+                          <button type="button" onclick="lolnamesicon()">Icon List</button>
+
+
+                    </div>
+
+                    <div class="option">
+                        <!-- Status personalizado -->
+                        <p class="suboption-name">Status Message</p>
+
+                        <div>
+                            <textarea rows="2" cols="35" placeholder="Write your status here !" id="status"></textarea>
+
+
+                        </div>
+
+                        <div class="options float-left">
+                            <label><input id="italics" type="checkbox">Italic</label>
+                        </div>
+                        <div class="options">
+                            <label><input id="bold" type="checkbox" >Bold</label>
+                        </div>
+                        <div class="options">
+                            <label><input id="AutoStatus" onclick="setStatusChanger()" type="checkbox">AutoStatus</label>
+                        </div>
+                        <div class="options">
+                            <button type="button" onclick="submitStatus()">Update</button>
+                        </div>
+
+
+                        <p class="suboption-name">Copy Status Message</p>
+
+                        <div>
+                            <textarea rows="1" cols="20" id="nickToCopyStatus" placeholder="Nick"></textarea>
+                            <button type="button" onclick="copyStatus()">Copy</button>
+                        </div>
+
+
+
+                        <!-- Fundo de perfil personalizado -->
+                        <p class="suboption-name">Change profile background</p>
+
+                        <div>
+                            <textarea rows="1" cols="20" placeholder="4001" id="back"></textarea>
+                        </div>
+
+                        <button type="button" onclick="submitBack()">Update</button>
+                        <button type="button" onclick="skinList()">SKINS LIST</button>
+                        <!-- Disponibilidade personalizada -->
+                        <p class="suboption-name">availability</p>
+
+                        <div>
+                            <select id="availability" class="dropdown">
+                <option value="chat">Online</option>
+                <option value="away">Away</option>
+                <option value="mobile">Phone</option>
+                <option value="offline">Offline</option>
+                <option value="breakxd">Bugged</option>
+              </select>
+                        </div>
+
+                        <button type="button" onclick="submitAvailability()">Update</button>
+
+
+                        <!-- CUSTOM SUMMONER NAME 
+                        <div class="option">
+
+                            <p class="suboption-name">Nickname Snipping (IN DEV)</p>
+
+                            <div>
+                                <textarea rows="1" cols="20" placeholder="Nick" id="summonername"></textarea>
+                            </div>
+
+                            <button type="button" onclick="submitSnipe()">Snipe</button>
+
+                        </div>
+                        -->
+
+                        <p class="suboption-name">RANK CHANGE</p>
+
+                        <div>
+
+                            <div class="float-left">
+                                <select onchange="tierChange()" id="tier" class="dropdown tier center-area">
+                  <option value="UNRANKED">Unranked</option>
+                  <option value="IRON">Iron</option>
+                  <option value="BRONZE">Bronze</option>
+                  <option value="SILVER">Silver</option>
+                  <option value="GOLD">Gold</option>
+                  <option value="PLATINUM">Platinum</option>
+                  <option value="DIAMOND">Diamond</option>
+                  <option value="MASTER">Master</option>
+                  <option value="GRANDMASTER">Grand-Master</option>
+                  <option value="CHALLENGER">Challenger</option>
+                  <option value="" disabled>––––––––––––––</option>
+                  <option value="breakxd">Nothing</option>
+                </select>
+                            </div>
+                            <div>
+                                <select onchange="divisionChange()" id="division" class="dropdown division center-area">
+                  <option value="IV">IV</option>
+                  <option value="III">III</option>
+                  <option value="II">II</option>
+                  <option value="I">I</option>
+                  <option value="">–</option>
+                </select>
+                                <select onchange="queueChange()" id="queue" class="dropdown division center-area">
+                  <option value="RANKED_SOLO_5x5">Solo Queue</option>
+                  <option value="RANKED_FLEX_SR">Flex Queue</option>
+                  <option value="RANKED_TFT">TFT Queue</option>
+                  <option value="RANKED_FLEX_TT">3X3 Queue</option>
+                </select>
+                            </div>
+
+                        </div>
+
+                        <button type="button" onclick="submitTierDivison()">Update</button>
+
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+        </div>
+
+
+
+
+        <div id="Outros" class="tabcontent">
+
+
+
+            <div class="info">
+                <img src="assets/ui/info2.png" draggable="false">
+                <div class="icon-box">
+                    <img src="assets/ui/default_icon.png" class="summonericon" id="profileSummonerIcon1" draggable="false">
+                </div>
+                <div class="level-box">
+                    <img src="assets/ui/level.png" class="level-badge" draggable="false">
+                    <p class="level-level" id="profileLevel1">--</p>
+                </div>
+                <p class="info-name" id="profileName1">Updating...</p>
+                <img src="assets/states/offline.png" class="info-status" id="info-status2" draggable="false">
+                
+                <p class="info-bp" id="profileLeagueName1"></p>
+                <br>                    <button type="button" onclick="profileUpdate()" class="getstarted">Refresh</button>
+            </div>
+
+
+            <div class="box">
+                <p class="option-name">OTHERS</p>
+                <!-- QUEUE -->
+
+                <p class="suboption-name">Change LeagueTags Background</p>
+                <div>
+                    <textarea rows="1" cols="45" placeholder="Image URL" id="backurl"></textarea>
+                    <button type="button" onclick='changeBack()'>Change</button>
+
+                </div>
+
+                <script>
+                        function checkCd(){
+                            var number = document.getElementById("cd").value;
+                            if(number > 80){
+                                var codeError = 'FRIENDS TO DELETE > 80 [' + number + ']';
+                                alert('ERROR: ' + codeError);
+                            }else{
+                                cleanFriends();
+                            }
+                        }
+                    </script>
+
+                <p class="suboption-name">Delete Friends</p>
+
+                <div>
+                   <!-- <textarea maxlength="2" rows="1" cols="25" placeholder="Friends to delete (max 80)" id="cd"></textarea> -->
+                    <button type="button" onclick='cleanFriends()'>Delete All</button>
+
+                </div>
+
+                
+
+                
+                <p class="suboption-name">Offline Session</p>
+                <div>
+                  <button type="button" onclick="submitOffExploit()">Delete Session</button>
+                </div>
+
+
+                <p class="suboption-name">Mass Chat Message</p>
+
+                <div class="suboption-name">
+                    <textarea rows="2" cols="35" placeholder="Message to send" id="messageToShare"></textarea>
+                    
+                </div>
+
+                <div>
+                    <select onchange="" id="start" class="dropdown division center-area">
+                        <option value="1" selected>1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                    </select>
+                    <button type="button" onclick="submitMessageShare()" id='btnMsg'>Send</button>
+
+                </div>
+
+
+
+
+                <p class="suboption-name">Chat Message</p>
+
+                <div class="suboption-name">
+                    <textarea rows="1" cols="20" placeholder="Nick (Case sensitive)" id="nome"></textarea>
+                </div>
+                <div>
+                    <textarea rows="2" cols="20" placeholder="Spam Message" id="mensagemCrash"></textarea>
+                </div>
+
+                <div>
+                    <button type="button" onclick="submitCrashNew()">Send</button>
+                    <button type="button" onclick="submitDescrash()">Delete history</button>
+                    
+
+                <p class="suboption-name">Skin Exploit</p>
+
+                <div class="suboption-name">
+                  <button type="button" onclick="submitRiotTristana()">Riot Girl Tristana</button>
+
+                </div>
+
+
+                <p class="suboption-name">Patch Changer</p>
+
+                <div class="suboption-name">
+                  <textarea rows="1" cols="40" placeholder="Manifest URL" id="manifestUrl"></textarea>
+                  <button type="button" onclick="submitPatch()">Patch</button>
+
+                </div>
+
+                    <p class="suboption-name">Change language  Change server</p>
+                    <div>
+                        <div class="float-left">
+                            <select onchange="regionChanger()" id="region" class="dropdown tier center-area">
+                  <option value="en_US">English</option>
+                  <option value="pt_BR">Portuguese</option>
+                  <option value="ja_JP">Japanese</option>
+                  <option value="es_MX">Spanish</option>
+                  <option value="ru_RU">Russian</option>
+                  <option value="ko_KR">Korean</option>
+                  <option value="zh_TW">Chinese</option>
+                  
+                </select>
+                        </div>
+                        <div>
+                            <select onchange="localeChanger()" id="locale" class="dropdown tier center-area">
+                  <option value="BR">Brazil</option>
+                  <option value="NA">NA</option>
+                  <option value="LA2">LAS</option>
+                  <option value="RU">RU</option>
+                  
+                </select>
+                        </div>
+                    </div>
+                    <button type="button" onclick="submitRegion()">Update</button>
+
+<!--
+                  <p class="suboption-name">Exploit Loot</p>
+                  <div id="dev-loot">
+                    <button type="button" onclick="submitLoot()">Exploitar</button>
+                  </div>
+-->
+                </div>
+
+            </div>
+
+        </div>
+
+        <div id="Lobby" class="tabcontent">
+           <div class="info">
+              <img src="assets/ui/info2.png" draggable="false">
+              <div class="icon-box">
+                <img src="assets/ui/default_icon.png" class="summonericon" id="profileSummonerIcon2" draggable="false">
+              </div>
+              <div class="level-box">
+                <img src="assets/ui/level.png" class="level-badge" draggable="false">
+                <p class="level-level" id="profileLevel2">--</p>
+              </div>
+              <p class="info-name" id="profileName2">Updating...</p>
+              <img src="assets/states/offline.png" class="info-status" id="info-status3" draggable="false">
+              
+              
+              <p class="info-bp" id="profileLeagueName2"></p>
+              <br>                    <button type="button" onclick="profileUpdate()" class="getstarted">Refresh</button>
+
+           </div>
+
+           <div class="box">
+                <p class="option-name">CHAMPION SELECT</p>
+
+                <p class="suboption-name">AUTO QUEUE ACCEPT</p>
+                <div class="options">
+                    <label><input type="checkbox" onchange="toggleAutoAccept(this)">Active</label>
+
+
+                </div>
+
+                <p class="suboption-name">AUTO PLAY AGAIN</p>
+                <div class="options">
+                    <label><input type="checkbox" onchange="togglePlayAgain(this)">Active</label>
+                </div>
+
+                <p class="suboption-name">AUTO QUEUE AGAIN</p>
+                <div class="options">
+                    <label><input type="checkbox" onchange="toggleQueueAgain(this)">Active</label>
+                </div>
+
+                <p class="suboption-name">AUTO ROLE</p>
+
+                <div>
+                    <select onchange="" id="role1" class="dropdown division center-area">
+                        <option value="TOP">TOP</option>
+                        <option value="JUNGLE">JG</option>
+                        <option value="MIDDLE">MID</option>
+                        <option value="BOTTOM">ADC</option>
+                        <option value="UTILITY">SUP</option>
+                    </select>
+                    <select onchange="" id="role2" class="dropdown division center-area">
+                        <option value="TOP">TOP</option>
+                        <option value="JUNGLE">JG</option>
+                        <option value="MIDDLE">MID</option>
+                        <option value="BOTTOM">ADC</option>
+                        <option value="UTILITY">SUP</option>
+                    </select>
+                </div>
+                <div class="options">
+                    <label><input type="checkbox" onchange="submitRole(this)">Active</label>
+                </div>
+
+
+                <p class="suboption-name">INSTALOCK (BLIND PICK)</p>
+                <div>
+                    <select onchange="" id="champid" class="dropdown division center-area">
+
+                <option value="266">Aatrox</option>
+                <option value="103">Ahri</option>
+                <option value="84">Akali</option>
+                <option value="166">Akshan</option>
+                <option value="12">Alistar</option>
+                <option value="32">Amumu</option>
+                <option value="34">Anivia</option>
+                <option value="1">Annie</option>
+                <option value="523">Aphelios</option>
+                <option value="22">Ashe</option>
+                <option value="136">AurelionSol</option>
+                <option value="268">Azir</option>
+                <option value="432">Bard</option>
+                <option value="53">Blitzcrank</option>
+                <option value="63">Brand</option>
+                <option value="201">Braum</option>
+                <option value="51">Caitlyn</option>
+                <option value="164">Camille</option>
+                <option value="69">Cassiopeia</option>
+                <option value="31">Chogath</option>
+                <option value="42">Corki</option>
+                <option value="122">Darius</option>
+                <option value="131">Diana</option>
+                <option value="119">Draven</option>
+                <option value="36">DrMundo</option>
+                <option value="245">Ekko</option>
+                <option value="60">Elise</option>
+                <option value="28">Evelynn</option>
+                <option value="81">Ezreal</option>
+                <option value="9">Fiddlesticks</option>
+                <option value="114">Fiora</option>
+                <option value="105">Fizz</option>
+                <option value="3">Galio</option>
+                <option value="41">Gangplank</option>
+                <option value="86">Garen</option>
+                <option value="150">Gnar</option>
+                <option value="79">Gragas</option>
+                <option value="104">Graves</option>
+                <option value="887">Gwen</option>
+                <option value="120">Hecarim</option>
+                <option value="74">Heimerdinger</option>
+                <option value="420">Illaoi</option>
+                <option value="39">Irelia</option>
+                <option value="427">Ivern</option>
+                <option value="40">Janna</option>
+                <option value="59">JarvanIV</option>
+                <option value="24">Jax</option>
+                <option value="126">Jayce</option>
+                <option value="202">Jhin</option>
+                <option value="222">Jinx</option>
+                <option value="145">Kaisa</option>
+                <option value="429">Kalista</option>
+                <option value="43">Karma</option>
+                <option value="30">Karthus</option>
+                <option value="38">Kassadin</option>
+                <option value="55">Katarina</option>
+                <option value="10">Kayle</option>
+                <option value="141">Kayn</option>
+                <option value="85">Kennen</option>
+                <option value="121">Khazix</option>
+                <option value="203">Kindred</option>
+                <option value="240">Kled</option>
+                <option value="96">KogMaw</option>
+                <option value="7">Leblanc</option>
+                <option value="64">LeeSin</option>
+                <option value="89">Leona</option>
+                <option value="876">Lillia</option>
+                <option value="127">Lissandra</option>
+                <option value="236">Lucian</option>
+                <option value="117">Lulu</option>
+                <option value="99">Lux</option>
+                <option value="54">Malphite</option>
+                <option value="90">Malzahar</option>
+                <option value="57">Maokai</option>
+                <option value="11">MasterYi</option>
+                <option value="21">MissFortune</option>
+                <option value="62">MonkeyKing</option>
+                <option value="82">Mordekaiser</option>
+                <option value="25">Morgana</option>
+                <option value="267">Nami</option>
+                <option value="75">Nasus</option>
+                <option value="111">Nautilus</option>
+                <option value="518">Neeko</option>
+                <option value="76">Nidalee</option>
+                <option value="56">Nocturne</option>
+                <option value="20">Nunu</option>
+                <option value="2">Olaf</option>
+                <option value="61">Orianna</option>
+                <option value="516">Ornn</option>
+                <option value="80">Pantheon</option>
+                <option value="78">Poppy</option>
+                <option value="555">Pyke</option>
+                <option value="246">Qiyana</option>
+                <option value="133">Quinn</option>
+                <option value="497">Rakan</option>
+                <option value="33">Rammus</option>
+                <option value="421">RekSai</option>
+                <option value="526">Rell</option>
+                <option value="58">Renekton</option>
+                <option value="107">Rengar</option>
+                <option value="92">Riven</option>
+                <option value="68">Rumble</option>
+                <option value="13">Ryze</option>
+                <option value="360">Samira</option>
+                <option value="113">Sejuani</option>
+                <option value="235">Senna</option>
+                <option value="147">Seraphine</option>
+                <option value="875">Sett</option>
+                <option value="35">Shaco</option>
+                <option value="98">Shen</option>
+                <option value="102">Shyvana</option>
+                <option value="27">Singed</option>
+                <option value="14">Sion</option>
+                <option value="15">Sivir</option>
+                <option value="72">Skarner</option>
+                <option value="37">Sona</option>
+                <option value="16">Soraka</option>
+                <option value="50">Swain</option>
+                <option value="517">Sylas</option>
+                <option value="134">Syndra</option>
+                <option value="223">TahmKench</option>
+                <option value="163">Taliyah</option>
+                <option value="91">Talon</option>
+                <option value="44">Taric</option>
+                <option value="17">Teemo</option>
+                <option value="412">Thresh</option>
+                <option value="18">Tristana</option>
+                <option value="48">Trundle</option>
+                <option value="23">Tryndamere</option>
+                <option value="4">TwistedFate</option>
+                <option value="29">Twitch</option>
+                <option value="77">Udyr</option>
+                <option value="6">Urgot</option>
+                <option value="110">Varus</option>
+                <option value="67">Vayne</option>
+                <option value="45">Veigar</option>
+                <option value="161">Velkoz</option>
+                <option value="711">Vex</option>
+                <option value="254">Vi</option>
+                <option value="234">Viego</option>
+                <option value="112">Viktor</option>
+                <option value="8">Vladimir</option>
+                <option value="106">Volibear</option>
+                <option value="19">Warwick</option>
+                <option value="498">Xayah</option>
+                <option value="101">Xerath</option>
+                <option value="5">XinZhao</option>
+                <option value="157">Yasuo</option>
+                <option value="777">Yone</option>
+                <option value="83">Yorick</option>
+                <option value="350">Yuumi</option>
+                <option value="154">Zac</option>
+                <option value="238">Zed</option>
+                <option value="115">Ziggs</option>
+                <option value="26">Zilean</option>
+                <option value="142">Zoe</option>
+                <option value="143">Zyra</option>
+            </select>
+
+            <select onchange="" id="laneid" class="dropdown division center-area">
+                <option value="TOP">TOP</option>
+                <option value="JG">JG</option>
+                <option value="MID">MID</option>
+                <option value="ADC">ADC</option>
+                <option value="SUP">SUP</option>
+            </select>
+                   </div>
+           <div class="options">
+                   
+                <label><input type="checkbox" onchange="toggleInstalock(this)">Active</label>
+           </div>
+
+
+
+           <p class="suboption-name">AUTO PICK (DRAFT)</p>
+                <div>
+                    <select onchange="" id="pickid" class="dropdown division center-area">
+
+                      <option value="0" selected disabled>Pick</option>
+                      <option value="266">Aatrox</option>
+                      <option value="103">Ahri</option>
+                      <option value="84">Akali</option>
+                      <option value="166">Akshan</option>
+                      <option value="12">Alistar</option>
+                      <option value="32">Amumu</option>
+                      <option value="34">Anivia</option>
+                      <option value="1">Annie</option>
+                      <option value="523">Aphelios</option>
+                      <option value="22">Ashe</option>
+                      <option value="136">AurelionSol</option>
+                      <option value="268">Azir</option>
+                      <option value="432">Bard</option>
+                      <option value="53">Blitzcrank</option>
+                      <option value="63">Brand</option>
+                      <option value="201">Braum</option>
+                      <option value="51">Caitlyn</option>
+                      <option value="164">Camille</option>
+                      <option value="69">Cassiopeia</option>
+                      <option value="31">Chogath</option>
+                      <option value="42">Corki</option>
+                      <option value="122">Darius</option>
+                      <option value="131">Diana</option>
+                      <option value="119">Draven</option>
+                      <option value="36">DrMundo</option>
+                      <option value="245">Ekko</option>
+                      <option value="60">Elise</option>
+                      <option value="28">Evelynn</option>
+                      <option value="81">Ezreal</option>
+                      <option value="9">Fiddlesticks</option>
+                      <option value="114">Fiora</option>
+                      <option value="105">Fizz</option>
+                      <option value="3">Galio</option>
+                      <option value="41">Gangplank</option>
+                      <option value="86">Garen</option>
+                      <option value="150">Gnar</option>
+                      <option value="79">Gragas</option>
+                      <option value="104">Graves</option>
+                      <option value="887">Gwen</option>
+                      <option value="120">Hecarim</option>
+                      <option value="74">Heimerdinger</option>
+                      <option value="420">Illaoi</option>
+                      <option value="39">Irelia</option>
+                      <option value="427">Ivern</option>
+                      <option value="40">Janna</option>
+                      <option value="59">JarvanIV</option>
+                      <option value="24">Jax</option>
+                      <option value="126">Jayce</option>
+                      <option value="202">Jhin</option>
+                      <option value="222">Jinx</option>
+                      <option value="145">Kaisa</option>
+                      <option value="429">Kalista</option>
+                      <option value="43">Karma</option>
+                      <option value="30">Karthus</option>
+                      <option value="38">Kassadin</option>
+                      <option value="55">Katarina</option>
+                      <option value="10">Kayle</option>
+                      <option value="141">Kayn</option>
+                      <option value="85">Kennen</option>
+                      <option value="121">Khazix</option>
+                      <option value="203">Kindred</option>
+                      <option value="240">Kled</option>
+                      <option value="96">KogMaw</option>
+                      <option value="7">Leblanc</option>
+                      <option value="64">LeeSin</option>
+                      <option value="89">Leona</option>
+                      <option value="876">Lillia</option>
+                      <option value="127">Lissandra</option>
+                      <option value="236">Lucian</option>
+                      <option value="117">Lulu</option>
+                      <option value="99">Lux</option>
+                      <option value="54">Malphite</option>
+                      <option value="90">Malzahar</option>
+                      <option value="57">Maokai</option>
+                      <option value="11">MasterYi</option>
+                      <option value="21">MissFortune</option>
+                      <option value="62">MonkeyKing</option>
+                      <option value="82">Mordekaiser</option>
+                      <option value="25">Morgana</option>
+                      <option value="267">Nami</option>
+                      <option value="75">Nasus</option>
+                      <option value="111">Nautilus</option>
+                      <option value="518">Neeko</option>
+                      <option value="76">Nidalee</option>
+                      <option value="56">Nocturne</option>
+                      <option value="20">Nunu</option>
+                      <option value="2">Olaf</option>
+                      <option value="61">Orianna</option>
+                      <option value="516">Ornn</option>
+                      <option value="80">Pantheon</option>
+                      <option value="78">Poppy</option>
+                      <option value="555">Pyke</option>
+                      <option value="246">Qiyana</option>
+                      <option value="133">Quinn</option>
+                      <option value="497">Rakan</option>
+                      <option value="33">Rammus</option>
+                      <option value="421">RekSai</option>
+                      <option value="526">Rell</option>
+                      <option value="58">Renekton</option>
+                      <option value="107">Rengar</option>
+                      <option value="92">Riven</option>
+                      <option value="68">Rumble</option>
+                      <option value="13">Ryze</option>
+                      <option value="360">Samira</option>
+                      <option value="113">Sejuani</option>
+                      <option value="235">Senna</option>
+                      <option value="147">Seraphine</option>
+                      <option value="875">Sett</option>
+                      <option value="35">Shaco</option>
+                      <option value="98">Shen</option>
+                      <option value="102">Shyvana</option>
+                      <option value="27">Singed</option>
+                      <option value="14">Sion</option>
+                      <option value="15">Sivir</option>
+                      <option value="72">Skarner</option>
+                      <option value="37">Sona</option>
+                      <option value="16">Soraka</option>
+                      <option value="50">Swain</option>
+                      <option value="517">Sylas</option>
+                      <option value="134">Syndra</option>
+                      <option value="223">TahmKench</option>
+                      <option value="163">Taliyah</option>
+                      <option value="91">Talon</option>
+                      <option value="44">Taric</option>
+                      <option value="17">Teemo</option>
+                      <option value="412">Thresh</option>
+                      <option value="18">Tristana</option>
+                      <option value="48">Trundle</option>
+                      <option value="23">Tryndamere</option>
+                      <option value="4">TwistedFate</option>
+                      <option value="29">Twitch</option>
+                      <option value="77">Udyr</option>
+                      <option value="6">Urgot</option>
+                      <option value="110">Varus</option>
+                      <option value="67">Vayne</option>
+                      <option value="45">Veigar</option>
+                      <option value="161">Velkoz</option>
+                      <option value="711">Vex</option>
+                      <option value="254">Vi</option>
+                      <option value="234">Viego</option>
+                      <option value="112">Viktor</option>
+                      <option value="8">Vladimir</option>
+                      <option value="106">Volibear</option>
+                      <option value="19">Warwick</option>
+                      <option value="498">Xayah</option>
+                      <option value="101">Xerath</option>
+                      <option value="5">XinZhao</option>
+                      <option value="157">Yasuo</option>
+                      <option value="777">Yone</option>
+                      <option value="83">Yorick</option>
+                      <option value="350">Yuumi</option>
+                      <option value="154">Zac</option>
+                      <option value="238">Zed</option>
+                      <option value="115">Ziggs</option>
+                      <option value="26">Zilean</option>
+                      <option value="142">Zoe</option>
+                      <option value="143">Zyra</option>
+            </select>
+
+            <select onchange="" id="banid" class="dropdown division center-area">
+                      <option value="-1" selected disabled>Ban</option>
+                      <option value="-1">None</option>
+                      <option value="266">Aatrox</option>
+                      <option value="103">Ahri</option>
+                      <option value="84">Akali</option>
+                      <option value="166">Akshan</option>
+                      <option value="12">Alistar</option>
+                      <option value="32">Amumu</option>
+                      <option value="34">Anivia</option>
+                      <option value="1">Annie</option>
+                      <option value="523">Aphelios</option>
+                      <option value="22">Ashe</option>
+                      <option value="136">AurelionSol</option>
+                      <option value="268">Azir</option>
+                      <option value="432">Bard</option>
+                      <option value="53">Blitzcrank</option>
+                      <option value="63">Brand</option>
+                      <option value="201">Braum</option>
+                      <option value="51">Caitlyn</option>
+                      <option value="164">Camille</option>
+                      <option value="69">Cassiopeia</option>
+                      <option value="31">Chogath</option>
+                      <option value="42">Corki</option>
+                      <option value="122">Darius</option>
+                      <option value="131">Diana</option>
+                      <option value="119">Draven</option>
+                      <option value="36">DrMundo</option>
+                      <option value="245">Ekko</option>
+                      <option value="60">Elise</option>
+                      <option value="28">Evelynn</option>
+                      <option value="81">Ezreal</option>
+                      <option value="9">Fiddlesticks</option>
+                      <option value="114">Fiora</option>
+                      <option value="105">Fizz</option>
+                      <option value="3">Galio</option>
+                      <option value="41">Gangplank</option>
+                      <option value="86">Garen</option>
+                      <option value="150">Gnar</option>
+                      <option value="79">Gragas</option>
+                      <option value="104">Graves</option>
+                      <option value="887">Gwen</option>
+                      <option value="120">Hecarim</option>
+                      <option value="74">Heimerdinger</option>
+                      <option value="420">Illaoi</option>
+                      <option value="39">Irelia</option>
+                      <option value="427">Ivern</option>
+                      <option value="40">Janna</option>
+                      <option value="59">JarvanIV</option>
+                      <option value="24">Jax</option>
+                      <option value="126">Jayce</option>
+                      <option value="202">Jhin</option>
+                      <option value="222">Jinx</option>
+                      <option value="145">Kaisa</option>
+                      <option value="429">Kalista</option>
+                      <option value="43">Karma</option>
+                      <option value="30">Karthus</option>
+                      <option value="38">Kassadin</option>
+                      <option value="55">Katarina</option>
+                      <option value="10">Kayle</option>
+                      <option value="141">Kayn</option>
+                      <option value="85">Kennen</option>
+                      <option value="121">Khazix</option>
+                      <option value="203">Kindred</option>
+                      <option value="240">Kled</option>
+                      <option value="96">KogMaw</option>
+                      <option value="7">Leblanc</option>
+                      <option value="64">LeeSin</option>
+                      <option value="89">Leona</option>
+                      <option value="876">Lillia</option>
+                      <option value="127">Lissandra</option>
+                      <option value="236">Lucian</option>
+                      <option value="117">Lulu</option>
+                      <option value="99">Lux</option>
+                      <option value="54">Malphite</option>
+                      <option value="90">Malzahar</option>
+                      <option value="57">Maokai</option>
+                      <option value="11">MasterYi</option>
+                      <option value="21">MissFortune</option>
+                      <option value="62">MonkeyKing</option>
+                      <option value="82">Mordekaiser</option>
+                      <option value="25">Morgana</option>
+                      <option value="267">Nami</option>
+                      <option value="75">Nasus</option>
+                      <option value="111">Nautilus</option>
+                      <option value="518">Neeko</option>
+                      <option value="76">Nidalee</option>
+                      <option value="56">Nocturne</option>
+                      <option value="20">Nunu</option>
+                      <option value="2">Olaf</option>
+                      <option value="61">Orianna</option>
+                      <option value="516">Ornn</option>
+                      <option value="80">Pantheon</option>
+                      <option value="78">Poppy</option>
+                      <option value="555">Pyke</option>
+                      <option value="246">Qiyana</option>
+                      <option value="133">Quinn</option>
+                      <option value="497">Rakan</option>
+                      <option value="33">Rammus</option>
+                      <option value="421">RekSai</option>
+                      <option value="526">Rell</option>
+                      <option value="58">Renekton</option>
+                      <option value="107">Rengar</option>
+                      <option value="92">Riven</option>
+                      <option value="68">Rumble</option>
+                      <option value="13">Ryze</option>
+                      <option value="360">Samira</option>
+                      <option value="113">Sejuani</option>
+                      <option value="235">Senna</option>
+                      <option value="147">Seraphine</option>
+                      <option value="875">Sett</option>
+                      <option value="35">Shaco</option>
+                      <option value="98">Shen</option>
+                      <option value="102">Shyvana</option>
+                      <option value="27">Singed</option>
+                      <option value="14">Sion</option>
+                      <option value="15">Sivir</option>
+                      <option value="72">Skarner</option>
+                      <option value="37">Sona</option>
+                      <option value="16">Soraka</option>
+                      <option value="50">Swain</option>
+                      <option value="517">Sylas</option>
+                      <option value="134">Syndra</option>
+                      <option value="223">TahmKench</option>
+                      <option value="163">Taliyah</option>
+                      <option value="91">Talon</option>
+                      <option value="44">Taric</option>
+                      <option value="17">Teemo</option>
+                      <option value="412">Thresh</option>
+                      <option value="18">Tristana</option>
+                      <option value="48">Trundle</option>
+                      <option value="23">Tryndamere</option>
+                      <option value="4">TwistedFate</option>
+                      <option value="29">Twitch</option>
+                      <option value="77">Udyr</option>
+                      <option value="6">Urgot</option>
+                      <option value="110">Varus</option>
+                      <option value="67">Vayne</option>
+                      <option value="45">Veigar</option>
+                      <option value="161">Velkoz</option>
+                      <option value="711">Vex</option>
+                      <option value="254">Vi</option>
+                      <option value="234">Viego</option>
+                      <option value="112">Viktor</option>
+                      <option value="8">Vladimir</option>
+                      <option value="106">Volibear</option>
+                      <option value="19">Warwick</option>
+                      <option value="498">Xayah</option>
+                      <option value="101">Xerath</option>
+                      <option value="5">XinZhao</option>
+                      <option value="157">Yasuo</option>
+                      <option value="777">Yone</option>
+                      <option value="83">Yorick</option>
+                      <option value="350">Yuumi</option>
+                      <option value="154">Zac</option>
+                      <option value="238">Zed</option>
+                      <option value="115">Ziggs</option>
+                      <option value="26">Zilean</option>
+                      <option value="142">Zoe</option>
+                      <option value="143">Zyra</option>
+            </select>
+                   </div>
+           <div class="options">
+                   
+                <label><input type="checkbox" onchange="togglePickBan(this)">Active</label>
+           </div>
+       </div>
+
+    </div>
+
+    </div>
+
+    <!-- END SECTIONS -->
+
+    </div>
+
+</body>
+
+</html>
