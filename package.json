@@ -12,6 +12,7 @@
   "license": "MIT",
   "dependencies": {
     "electron": "^13.1.7",
+    "electron-packager": "^17.1.2",
     "electron-alert": "^0.1.16",
     "electron-open-link-in-browser": "^1.0.2",
     "league-connector": "^1.0.6",
